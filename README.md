@@ -13,7 +13,7 @@
 ## 使用方法
 以下のコマンドで実行してください．  
 
-```ps1
+```batch
 python stockprice.py
 ```
 
