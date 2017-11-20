@@ -1,4 +1,4 @@
-print "Date, Open, Close, High, Low, Volume, Adj Close \n";
+print "Date, Open, High, Low, Close, Volume, Adj Close \n";
 while (<>) {
 	chop($_);
 	print $_;
