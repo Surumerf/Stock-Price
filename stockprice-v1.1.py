@@ -17,20 +17,39 @@ def jpstock(code, start_date, end_date):
     end = dt.date(int(year), int(month), int(day))
 
     print('CSVを出力中．．．')
-    name = str(code) + '.csv'
-    c = jsm.QuotesCsv()
-    c.save_historical_prices(name, code, jsm.DAILY, start_date=start, end_date=end)
-    print(name + 'を出力しました．')
-
-    print('株価データをプロット中．．．')
     q = jsm.Quotes()
     target = q.get_historical_prices(code, jsm.DAILY, start_date=start, end_date=end)
 
     date = [data.date for data in target]
+    open = [data.open for data in target]
+    high = [data.high for data in target]
+    low = [data.low for data in target]
     close = [data.close for data in target]
+    volume = [data.volume for data in target]
+    adj_close = [data._adj_close for data in target]
 
-    df = pd.DataFrame(index=date[::-1])
-    df['Close'] = close[::-1]
+    Date = date[::-1]
+    Open = open[::-1]
+    High = high[::-1]
+    Low = low[::-1]
+    Close = close[::-1]
+    Vol = volume[::-1]
+    Adj = adj_close[::-1]
+
+    cdf = pd.DataFrame(index=Date)
+    cdf["Open"] = Open
+    cdf["High"] = High
+    cdf["Low"] = Low
+    cdf["Close"] = Close
+    cdf["Volume"] = Vol
+    cdf["Adj Close"] = Adj
+
+    cdf.to_csv(code + '.csv')
+    print(code + '.csvを出力しました．')
+
+    print('株価データをプロット中．．．')
+    df = pd.DataFrame(index=Date)
+    df['Close'] = Adj
 
     return df
 
