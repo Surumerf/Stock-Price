@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 '''
-株価データのプロットとCSVへの出力
+株価データのプロット・CSVへの出力
 '''
 
 import datetime as dt
