@@ -10,6 +10,8 @@
 * pandas_datareader
 * jsm
 
+詳細は[こちら](https://qiita.com/Surumerf/items/436747326537143d1fcf)を参考にしてください．
+
 ## 使用方法
 以下のコマンドで実行してください．  
 
