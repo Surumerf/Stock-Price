@@ -1,5 +1,5 @@
 #!usr/bin/python3
-# coding: utf-8
+# -*- coding: utf-8 -*-
 
 '''
 株価データのプロットとCSVへの出力
@@ -34,23 +34,24 @@ def jpstock(code, start_date, end_date):
     High = high[::-1]
     Low = low[::-1]
     Close = close[::-1]
-    Vol = volume[::-1]
     Adj = adj_close[::-1]
+    Vol = volume[::-1]
 
     cdf = pd.DataFrame(index=Date)
+    cdf.index.name = "Date"
     cdf["Open"] = Open
     cdf["High"] = High
     cdf["Low"] = Low
     cdf["Close"] = Close
-    cdf["Volume"] = Vol
     cdf["Adj Close"] = Adj
+    cdf["Volume"] = Vol
 
     cdf.to_csv(code + '.csv')
     print(code + '.csvを出力しました．')
 
     print('株価データをプロット中．．．')
     df = pd.DataFrame(index=Date)
-    df['Close'] = Adj
+    df['Adj Close'] = Adj
 
     return df
 
@@ -80,14 +81,14 @@ def main():
         end_date = input('取得期間の終わりの日付を入力 [yyyy-mm-dd]: ')
         try:
             jstock = jpstock(code, start_date, end_date)
-            jstock['Close'].plot()
+            jstock['Adj Close'].plot()
             plt.show()
         except:
             print('データの取得中にエラーが発生しました．')
             main()
 
     elif country == 'us':
-        ticker = input('Ticker Symbol? :')
+        ticker = input('Ticker Symbol?: ')
         start_date = input('取得期間の初めの日付を入力 [yyyy-mm-dd]: ')
         end_date = input('取得期間の終わりの日付を入力 [yyyy-mm-dd]: ')
         try:
