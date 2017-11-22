@@ -77,20 +77,29 @@ def main():
         code = input('証券コード？ ')
         start_date = input('取得期間の初めの日付を入力 [yyyy-mm-dd]: ')
         end_date = input('取得期間の終わりの日付を入力 [yyyy-mm-dd]: ')
-        jstock = jpstock(code, start_date, end_date)
-        jstock['Close'].plot()
-        plt.show()
+        try:
+            jstock = jpstock(code, start_date, end_date)
+            jstock['Close'].plot()
+            plt.show()
+        except:
+            print('データの取得中にエラーが発生しました．')
+            main()
 
     elif country == 'us':
         ticker = input('Ticker Symbol? :')
         start_date = input('取得期間の初めの日付を入力 [yyyy-mm-dd]: ')
         end_date = input('取得期間の終わりの日付を入力 [yyyy-mm-dd]: ')
-        ustock = usstock(ticker, start_date, end_date)
-        ustock['Adj Close'].plot()
-        plt.show()
+        try:
+            ustock = usstock(ticker, start_date, end_date)
+            ustock['Adj Close'].plot()
+            plt.show()
+        except:
+            print('データの取得中にエラーが発生しました．')
+            main()
 
     else:
-        print('エラー')
+        print('エラーが発生しました．')
+        main()
 
 if __name__ == "__main__":
     main()
