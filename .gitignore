@@ -1,6 +1,5 @@
 *.csv
 *.xlsx
-*.bat
 data
 archive
 dev
