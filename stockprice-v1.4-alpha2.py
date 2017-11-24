@@ -6,7 +6,7 @@
 '''
 
 import datetime as dt
-import pandas as pd
+from pandas import DataFrame
 import jsm
 import pandas_datareader.data as web
 import matplotlib.pyplot as plt
@@ -37,7 +37,7 @@ def jpstock(code, start_date, end_date):
     Adj = adj_close[::-1]
     Vol = volume[::-1]
 
-    cdf = pd.DataFrame(index=Date)
+    cdf = DataFrame(index=Date)
     cdf.index.name = "Date"
     cdf["Open"] = Open
     cdf["High"] = High
@@ -50,7 +50,7 @@ def jpstock(code, start_date, end_date):
     print(code + '.csvを出力しました．')
 
     print('株価データをプロット中．．．')
-    df = pd.DataFrame(index=Date)
+    df = DataFrame(index=Date)
     df['Adj Close'] = Adj
 
     return df
@@ -68,7 +68,7 @@ def usstock(ticker, start_date, end_date):
     print(ticker + '.csvを出力しました．')
 
     print('株価データをプロット中．．．')
-    df3 = pd.DataFrame(index=[])
+    df3 = DataFrame(index=[])
     df3['Adj Close'] = df2['Adj Close']
 
     return df3
