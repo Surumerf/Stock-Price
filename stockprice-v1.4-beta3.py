@@ -120,7 +120,7 @@ def brand():
     q = jsm.Quotes()
     brands = q.get_brand(gcode)
     bf4 = DataFrame()
-    bf4["銘柄コード"] = brands
+    bf4["銘柄リスト"] = brands
     print(bf4)
     print('リストファイルを出力中．．．')
     bf4.to_csv(gcode + '.txt', index=False)
