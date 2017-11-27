@@ -2,11 +2,11 @@
 # -*- coding:utf-8 -*-
 
 '''
-株価データのCSV出力 (GUI Version)
+株価データのプロット・CSV出力 (GUI Version)
 '''
 
 '''
-[v1.5 Alpha 2] 期間設定機能・プロット機能は未実装
+[v1.5 Beta 1] プロット機能は未実装，v1.6 以降にて実装予定
 '''
 
 import sys
@@ -30,14 +30,82 @@ class Tab1Widget(QMainWindow):
         self.textbox.move(20, 60)
         self.textbox.resize(280, 40)
 
+        self.label2 = QLabel('期間設定', self)
+        self.label2.setFont(self.font)
+        self.label2.move(20,120)
+
+
+        self.byear = QLineEdit(self)
+        self.byear.move(20, 160)
+        self.byear.resize(50, 30)
+        self.byear.setText('2017')
+
+        self.label3 = QLabel('年', self)
+        self.label3.setFont(self.font)
+        self.label3.move(80, 160)
+        self.label3.resize(30,30)
+
+        self.bmonth = QLineEdit(self)
+        self.bmonth.move(120, 160)
+        self.bmonth.resize(40, 30)
+        self.bmonth.setText('10')
+
+        self.label4 = QLabel('月', self)
+        self.label4.setFont(self.font)
+        self.label4.move(170, 160)
+        self.label4.resize(30,30)
+
+        self.bdate = QLineEdit(self)
+        self.bdate.move(210, 160)
+        self.bdate.resize(40, 30)
+        self.bdate.setText('1')
+
+        self.label5 = QLabel('日から', self)
+        self.label5.setFont(self.font)
+        self.label5.move(260, 160)
+        self.label5.resize(60,30)
+
+
+        self.eyear = QLineEdit(self)
+        self.eyear.move(230, 210)
+        self.eyear.resize(50, 30)
+        self.eyear.setText('2017')
+
+        self.label6 = QLabel('年', self)
+        self.label6.setFont(self.font)
+        self.label6.move(290, 210)
+        self.label6.resize(30,30)
+
+        self.emonth = QLineEdit(self)
+        self.emonth.move(330, 210)
+        self.emonth.resize(40, 30)
+        self.emonth.setText('10')
+
+        self.label7 = QLabel('月', self)
+        self.label7.setFont(self.font)
+        self.label7.move(380, 210)
+        self.label7.resize(30,30)
+
+        self.edate = QLineEdit(self)
+        self.edate.move(420, 210)
+        self.edate.resize(40, 30)
+        self.edate.setText('31')
+
+        self.label8 = QLabel('日まで', self)
+        self.label8.setFont(self.font)
+        self.label8.move(470, 210)
+        self.label8.resize(60,30)
+
+
         self.button = QPushButton('取得', self)
         self.button.move(320, 70)
         self.button.clicked.connect(self.on_click)
 
-        self.label2 = QLabel('業種別銘柄リスト', self)
-        self.label2.setFont(self.font)
-        self.label2.move(20, 140)
-        self.label2.resize(200, 30)
+
+        self.Label = QLabel('業種別銘柄リスト', self)
+        self.Label.setFont(self.font)
+        self.Label.move(20, 280)
+        self.Label.resize(200, 30)
 
         self.combo = QComboBox(self)
         lists = [
@@ -77,17 +145,23 @@ class Tab1Widget(QMainWindow):
             "9050 : サービス業"
         ]
         self.combo.addItems(lists)
-        self.combo.move(20, 180)
+        self.combo.move(20, 320)
         self.combo.resize(200, 30)
 
         self.button2 = QPushButton('取得', self)
-        self.button2.move(240, 180)
+        self.button2.move(240, 320)
         self.button2.clicked.connect(self.on_click2)
 
     def on_click(self):
         code = int(self.textbox.text())
-        self.start = dt.date(2017, 10, 1)
-        self.end = dt.date(2017, 10, 31)
+        ybegin = int(self.byear.text())
+        mbegin = int(self.bmonth.text())
+        dbegin = int(self.bdate.text())
+        yend = int(self.eyear.text())
+        mend = int(self.emonth.text())
+        dend = int(self.edate.text())
+        self.start = dt.date(ybegin, mbegin, dbegin)
+        self.end = dt.date(yend, mend, dend)
 
         q = jsm.Quotes()
         target = q.get_historical_prices(code, jsm.DAILY, start_date=self.start, end_date=self.end)
@@ -189,10 +263,82 @@ class Tab2Widget(QMainWindow):
         self.button.move(320, 70)
         self.button.clicked.connect(self.on_click)
 
+        self.label2 = QLabel('期間設定', self)
+        self.label2.setFont(self.font)
+        self.label2.move(20,120)
+
+
+        self.byear = QLineEdit(self)
+        self.byear.move(20, 160)
+        self.byear.resize(50, 30)
+        self.byear.setText('2017')
+
+        self.label3 = QLabel('年', self)
+        self.label3.setFont(self.font)
+        self.label3.move(80, 160)
+        self.label3.resize(30,30)
+
+        self.bmonth = QLineEdit(self)
+        self.bmonth.move(120, 160)
+        self.bmonth.resize(40, 30)
+        self.bmonth.setText('10')
+
+        self.label4 = QLabel('月', self)
+        self.label4.setFont(self.font)
+        self.label4.move(170, 160)
+        self.label4.resize(30,30)
+
+        self.bdate = QLineEdit(self)
+        self.bdate.move(210, 160)
+        self.bdate.resize(40, 30)
+        self.bdate.setText('1')
+
+        self.label5 = QLabel('日から', self)
+        self.label5.setFont(self.font)
+        self.label5.move(260, 160)
+        self.label5.resize(60,30)
+
+
+        self.eyear = QLineEdit(self)
+        self.eyear.move(230, 210)
+        self.eyear.resize(50, 30)
+        self.eyear.setText('2017')
+
+        self.label6 = QLabel('年', self)
+        self.label6.setFont(self.font)
+        self.label6.move(290, 210)
+        self.label6.resize(30,30)
+
+        self.emonth = QLineEdit(self)
+        self.emonth.move(330, 210)
+        self.emonth.resize(40, 30)
+        self.emonth.setText('10')
+
+        self.label7 = QLabel('月', self)
+        self.label7.setFont(self.font)
+        self.label7.move(380, 210)
+        self.label7.resize(30,30)
+
+        self.edate = QLineEdit(self)
+        self.edate.move(420, 210)
+        self.edate.resize(40, 30)
+        self.edate.setText('31')
+
+        self.label8 = QLabel('日まで', self)
+        self.label8.setFont(self.font)
+        self.label8.move(470, 210)
+        self.label8.resize(60,30)
+
     def on_click(self):
         ticker = self.textbox.text()
-        self.start = dt.date(2017, 10, 1)
-        self.end = dt.date(2017, 10, 31)
+        ybegin = int(self.byear.text())
+        mbegin = int(self.bmonth.text())
+        dbegin = int(self.bdate.text())
+        yend = int(self.eyear.text())
+        mend = int(self.emonth.text())
+        dend = int(self.edate.text())
+        self.start = dt.date(ybegin, mbegin, dbegin)
+        self.end = dt.date(yend, mend, dend)
 
         df = web.DataReader(ticker, 'yahoo', self.start, self.end)
         df.to_csv(str(ticker) + '.csv')
@@ -216,7 +362,7 @@ class UI(QWidget):
 
         self.setLayout(hbox)
 
-        self.setGeometry(300, 300, 500, 300)
+        self.setGeometry(300, 300, 600, 500)
         self.setWindowTitle('Stock Price')
         self.show()
 
@@ -224,3 +370,4 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     ui = UI()
     sys.exit(app.exec_())
+    
