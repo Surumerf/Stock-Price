@@ -150,6 +150,7 @@ def main():
                 jstock = jpstock(code, start_date, end_date)
                 jstock['Adj Close'].plot()
                 plt.show()
+                main()
             except:
                 print('データの取得中にエラーが発生しました．')
                 main()
@@ -162,6 +163,7 @@ def main():
             ustock = usstock(ticker, start_date, end_date)
             ustock['Adj Close'].plot()
             plt.show()
+            main()
         except:
             print('データの取得中にエラーが発生しました．')
             main()
