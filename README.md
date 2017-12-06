@@ -16,7 +16,7 @@
 以下のコマンドで実行してください．  
 
 ```batch
-python stockprice-v1.4.py
+python stockprice-cli-v1.5.py
 ```
 
 その後，日本株・外国株の選択や証券コード等の入力が求められます．  
