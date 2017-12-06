@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
+# pylint: skip-file
 
 '''
 株価データのプロット・CSV出力 (GUI Version)
