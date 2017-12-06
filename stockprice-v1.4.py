@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# pylint: skip-file
 
 '''
-株価データのプロット・CSVへの出力
+株価データのプロット・CSVへの出力 (CLI Version)
 '''
 
 import datetime as dt
