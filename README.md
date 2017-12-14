@@ -1,6 +1,7 @@
 # 株価データのプロットとCSV出力
 
 [![GitHub release](https://img.shields.io/github/release/Surumerf/Stock-Price.svg)](https://github.com/Surumerf/Stock-Price/releases)
+[![Code Climate](https://img.shields.io/codeclimate/maintainability/Surumerf/Stock-Price.svg)](https://codeclimate.com/github/Surumerf/Stock-Price)
 [![GitHub last commit](https://img.shields.io/github/last-commit/Surumerf/Stock-Price.svg)](https://github.com/Surumerf/Stock-Price/commits)
 [![Github commits (since latest release)](https://img.shields.io/github/commits-since/Surumerf/Stock-Price/latest.svg)](https://github.com/Surumerf/Stock-Price/commits)
 [![GitHub repo size in bytes](https://img.shields.io/github/repo-size/Surumerf/Stock-Price.svg)](https://github.com/Surumerf/Stock-Price)
