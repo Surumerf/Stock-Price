@@ -1,4 +1,10 @@
 # 株価データのプロットとCSV出力
+[![GitHub release](https://img.shields.io/github/release/Surumerf/Stock-Price.svg)](https://github.com/Surumerf/Stock-Price/releases)
+[![GitHub last commit](https://img.shields.io/github/last-commit/Surumerf/Stock-Price.svg)](https://github.com/Surumerf/Stock-Price/commits)
+[![Github commits (since latest release)](https://img.shields.io/github/commits-since/Surumerf/Stock-Price/latest.svg)](https://github.com/Surumerf/Stock-Price/commits)
+[![GitHub repo size in bytes](https://img.shields.io/github/repo-size/Surumerf/Stock-Price.svg)](https://github.com/Surumerf/Stock-Price)
+[![license](https://img.shields.io/github/license/Surumerf/Stock-Price.svg)](LICENSE)
+
 日本株または外国株の株価データを取得し，プロット・CSV出力を行います．  
 
 ## インストール
