@@ -3,7 +3,7 @@
 # pylint: skip-file
 
 '''
-株価データのプロット・CSVへの出力 (CLI Version)
+Plotting and CSV-Exporting Stock Prices Data (CLI Version)
 '''
 
 import datetime as dt
@@ -18,7 +18,7 @@ def jpstock(code, start_date, end_date):
     year, month, day = end_date.split("-")
     end = dt.date(int(year), int(month), int(day))
 
-    print('CSVを出力中．．．')
+    print('Exporting CSV Files . . .')
     q = jsm.Quotes()
     target = q.get_historical_prices(code, jsm.DAILY, start_date=start, end_date=end)
 
@@ -48,9 +48,9 @@ def jpstock(code, start_date, end_date):
     cdf["Volume"] = Vol
 
     cdf.to_csv(code + '.csv')
-    print(code + '.csvを出力しました．')
+    print(code + '.csv exported.')
 
-    print('株価データをプロット中．．．')
+    print('Plotting . . .')
     df = DataFrame(index=Date)
     df['Adj Close'] = Adj
 
@@ -62,20 +62,20 @@ def usstock(ticker, start_date, end_date):
     year, month, day = end_date.split("-")
     end = dt.date(int(year), int(month), int(day))
 
-    print('CSVを出力中．．．')
+    print('Exporting CSV Files . . .')
     df2 = web.DataReader(ticker, 'yahoo', start, end)
 
     df2.to_csv(ticker + '.csv')
-    print(ticker + '.csvを出力しました．')
+    print(ticker + '.csv exported.')
 
-    print('株価データをプロット中．．．')
+    print('Plotting . . .')
     df3 = DataFrame(index=[])
     df3['Adj Close'] = df2['Adj Close']
 
     return df3
 
 def brand():
-    print('業種コード一覧を表示します．．．')
+    print('Displaying the list of Industry Code . . .')
 
     lists = [ 
         "'0050': 農林・水産業",
@@ -116,18 +116,18 @@ def brand():
     for item in lists:
         print(item)
 
-    gcode = input('業種コード？ ')
-    print('業種別銘柄リストを取得しています．．．')
+    gcode = input('Industries Code? ')
+    print('Displaying the list of names classified into the designated industry . . .')
     q = jsm.Quotes()
     brands = q.get_brand(gcode)
     bf4 = DataFrame()
-    bf4["銘柄リスト"] = brands
+    bf4["List of Names"] = brands
     print(bf4)
-    print('リストファイルを出力中．．．')
+    print('Exporting the list . . .')
     bf4.to_csv(gcode + '.txt', index=False)
-    print(gcode + '.txtを出力しました．')
+    print(gcode + '.txt exported.')
 
-    cont = str(input('引き続き個別銘柄のデータを取得する場合は「y」，やめる場合は「n」を入力 [y/n]: '))
+    cont = str(input('Continue(y) or Exit(n)? [y/n]: '))
     if cont == 'n':
         return None
     else:
@@ -135,45 +135,45 @@ def brand():
 
 
 def main():
-    country = str(input('日本株の場合は「ja」，そうでない場合は「us」を入力 [ja/us]: '))
+    country = str(input('Japanese Stocks(ja) or Not(us)? [ja/us]: '))
     if country == 'ja':
-        code = input('証券コード？ ')
+        code = input('Securities Code? ')
         if str(code) == "search":
             try:
                 brand()
             except:
-                print('データの取得中にエラーが発生しました．')
+                print('Error occured while retrieving data.')
                 main()
         else:
-            start_date = input('取得期間の初めの日付を入力 [yyyy-mm-dd]: ')
-            end_date = input('取得期間の終わりの日付を入力 [yyyy-mm-dd]: ')
+            start_date = input('From when? [yyyy-mm-dd]: ')
+            end_date = input('Until when? [yyyy-mm-dd]: ')
             try:
                 jstock = jpstock(code, start_date, end_date)
                 jstock['Adj Close'].plot()
                 plt.show()
                 main()
             except:
-                print('データの取得中にエラーが発生しました．')
+                print('Error occured while retrieving data.')
                 main()
 
     elif country == 'us':
         ticker = input('Ticker Symbol?: ')
-        start_date = input('取得期間の初めの日付を入力 [yyyy-mm-dd]: ')
-        end_date = input('取得期間の終わりの日付を入力 [yyyy-mm-dd]: ')
+        start_date = input('From when? [yyyy-mm-dd]: ')
+        end_date = input('Until when? [yyyy-mm-dd]: ')
         try:
             ustock = usstock(ticker, start_date, end_date)
             ustock['Adj Close'].plot()
             plt.show()
             main()
         except:
-            print('データの取得中にエラーが発生しました．')
+            print('Error occured while retrieving data.')
             main()
 
     elif country == 'exit':
         return
 
     else:
-        print('[ja/us] を入力してください．')
+        print('Enter [ja] or [us]')
         main()
 
 if __name__ == "__main__":

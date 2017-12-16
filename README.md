@@ -1,4 +1,4 @@
-# 株価データのプロットとCSV出力
+# Plotting and CSV-Exporting Stock Prices Data
 
 [![GitHub release](https://img.shields.io/github/release/Surumerf/Stock-Price.svg)](https://github.com/Surumerf/Stock-Price/releases)
 [![Code Climate](https://img.shields.io/codeclimate/maintainability/Surumerf/Stock-Price.svg)](https://codeclimate.com/github/Surumerf/Stock-Price)
@@ -7,39 +7,25 @@
 [![GitHub repo size in bytes](https://img.shields.io/github/repo-size/Surumerf/Stock-Price.svg)](https://github.com/Surumerf/Stock-Price)
 [![license](https://img.shields.io/github/license/Surumerf/Stock-Price.svg)](LICENSE)
 
-日本株または外国株の株価データを取得し，プロット・CSV出力を行います．
+You can plot both Japanese and Non-Japanese stock prices data, and can export them as csv files.
 
-## インストール
-
-実行するためには以下の環境とライブラリが必要です．
+## Requirements
 
 * Python 3.x
 * matplotlib
 * pandas
 * pandas_datareader
 * jsm
+* pyqt5 ( GUI version only )
 
-詳細は[こちら](https://qiita.com/Surumerf/items/436747326537143d1fcf)を参考にしてください．
+Detailed instructions are [here](https://qiita.com/Surumerf/items/436747326537143d1fcf) ( only Japanese ).
 
-## 使用方法
+## Usage
 
-以下のコマンドで実行してください．
+Run with the following commands:
 
 ```batch
 python stockprice-cli-v1.5.py
 ```
 
-その後，日本株・外国株の選択や証券コード等の入力が求められます．  
-指示に従って入力してください．
-
-## ~~日本株データのCSV出力に関して~~
-
-~~v1.0では日本株データを出力したCSVファイルにやや難があります．~~  
-~~そのため出力されたCSVファイルを整形するファイル`modify.pl`を追加しました．~~  
-~~CSVファイルと同じディレクトリに`modify.pl`を置いた上で，以下のコマンドで実行してください．~~
-
-```batch
-perl modify.pl < [旧CSVファイル名] > [新CSVファイル名]
-```
-
-v1.1で修正したため，`modify.pl`を削除しました．
+Then enter commands as per instructions.
