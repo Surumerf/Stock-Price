@@ -18,7 +18,7 @@ You can plot both Japanese and Non-Japanese stock prices data, and can export th
 * jsm
 * pyqt5 ( GUI version only )
 
-Detailed instructions are [here](https://qiita.com/Surumerf/items/436747326537143d1fcf) ( only Japanese ).
+Detailed instructions are [here](https://qiita.com/Surumerf/items/436747326537143d1fcf) ( Japanese only ).
 
 ## Usage
 
