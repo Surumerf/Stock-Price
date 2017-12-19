@@ -135,7 +135,7 @@ def brand():
 
 
 def main():
-    country = str(input('Japanese Stocks(ja) or Not(us)? [ja/us]: '))
+    country = str(input('Japanese Stocks(ja) or Non-Japanese(us)? [ja/us]: '))
     if country == 'ja':
         code = input('Securities Code? ')
         if str(code) == "search":
