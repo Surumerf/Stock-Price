@@ -117,7 +117,7 @@ def brand():
         print(item)
 
     gcode = input('Industries Code? ')
-    print('Displaying the list of names classified into the designated industry . . .')
+    print('Displaying the list of names classified under the designated industry . . .')
     q = jsm.Quotes()
     brands = q.get_brand(gcode)
     bf4 = DataFrame()
