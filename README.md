@@ -32,4 +32,4 @@ python stockprice-cli-v1.6.py
 Then enter commands as per instructions.
 
 ## LICENSE
-Licensed under MIT License. See [LICENSE](https://github.com/Surumerf/Stock-Price/blob/master/LICENSE).
+Licensed under the MIT License. See [LICENSE](https://github.com/Surumerf/Stock-Price/blob/master/LICENSE).
