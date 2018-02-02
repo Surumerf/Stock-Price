@@ -25,11 +25,11 @@ Detailed instructions are [here](https://qiita.com/Surumerf/items/43674732653714
 
 Run with the following command:
 
-```batch
+```
 python stockprice-cli-v1.6.py
 ```
 
 Then enter commands as per instructions.
 
 ## LICENSE
-Licensed under the GNU General Public License. See [LICENSE](https://github.com/Surumerf/Stock-Price/blob/master/LICENSE).
+Licensed under MIT License. See [LICENSE](https://github.com/Surumerf/Stock-Price/blob/master/LICENSE).
