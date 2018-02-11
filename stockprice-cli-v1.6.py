@@ -142,7 +142,7 @@ def main():
             try:
                 brand()
             except:
-                print('Error occured while retrieving data.')
+                print('Error occurred while retrieving data.')
                 main()
         else:
             start_date = input('From when? [yyyy-mm-dd]: ')
@@ -153,7 +153,7 @@ def main():
                 plt.show()
                 main()
             except:
-                print('Error occured while retrieving data.')
+                print('Error occurred while retrieving data.')
                 main()
 
     elif country == 'us':
@@ -166,7 +166,7 @@ def main():
             plt.show()
             main()
         except:
-            print('Error occured while retrieving data.')
+            print('Error occurred while retrieving data.')
             main()
 
     elif country == 'exit':
