@@ -117,15 +117,20 @@ def brand():
         print(item)
 
     gcode = input('Industries Code? ')
-    print('Displaying the list of names classified under the designated industry . . .')
     q = jsm.Quotes()
-    brands = q.get_brand(gcode)
-    bf4 = DataFrame()
-    bf4["List of Names"] = brands
-    print(bf4)
+    target2 = q.get_brand(gcode)
+    ccode = [data.ccode for data in target2]
+    market = [data.market for data in target2]
+    name = [data.name for data in target2]
+    info = [data.info for data in target2]
+    bf4 = DataFrame(index=ccode)
+    bf4.index.name = "Code"
+    bf4["Name"] = name
+    bf4["Market"] = market
+    bf4["Info"] = info
     print('Exporting the list . . .')
-    bf4.to_csv(gcode + '.txt', index=False)
-    print(gcode + '.txt exported.')
+    bf4.to_csv(gcode + '.csv')
+    print(gcode + '.csv exported.')
 
     cont = str(input('Continue(y) or Exit(n)? [y/n]: '))
     if cont == 'n':

@@ -7,7 +7,7 @@
 '''
 
 '''
-[v1.6] プロット機能は未実装，v1.7 以降にて実装予定
+[v1.7] プロット機能は未実装，v1.8 以降にて実装予定
 '''
 
 import sys
@@ -236,13 +236,20 @@ class Tab1Widget(QMainWindow):
                 "7200",
                 "8050",
                 "9050"
-            ]
+            ]            
             q = jsm.Quotes()
-            brands = q.get_brand(brandlist[gcode-1])
-            df = DataFrame()
-            df["銘柄リスト"] = brands
-            df.to_csv(brandlist[gcode-1] + '.txt', index=False)
-            QMessageBox.question(self, 'Exported list', brandlist[gcode-1] + '.txt を出力しました．', QMessageBox.Ok, QMessageBox.Ok)
+            target = q.get_brand(brandlist[gcode-1])
+            ccode = [data.ccode for data in target]
+            market = [data.market for data in target]
+            name = [data.name for data in target]
+            info = [data.info for data in target]
+            df = DataFrame(index=ccode)
+            df.index.name = "証券コード"
+            df["銘柄名"] = name
+            df["市場"] = market
+            df["インフォメーション"] = info
+            df.to_csv(brandlist[gcode-1] + '.csv')
+            QMessageBox.question(self, 'Exported list', brandlist[gcode-1] + '.csv を出力しました．', QMessageBox.Ok, QMessageBox.Ok)
             
             self.combo.setCurrentIndex(0)
 
