@@ -123,13 +123,13 @@ def brand():
     market = [data.market for data in target2]
     name = [data.name for data in target2]
     info = [data.info for data in target2]
-    bf4 = DataFrame(index=ccode)
-    bf4.index.name = "Code"
-    bf4["Name"] = name
-    bf4["Market"] = market
-    bf4["Info"] = info
+    df4 = DataFrame(index=ccode)
+    df4.index.name = "Code"
+    df4["Name"] = name
+    df4["Market"] = market
+    df4["Info"] = info
     print('Exporting the list . . .')
-    bf4.to_csv(gcode + '.csv')
+    df4.to_csv(gcode + '.csv')
     print(gcode + '.csv exported.')
 
     cont = str(input('Continue(y) or Exit(n)? [y/n]: '))
