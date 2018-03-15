@@ -26,7 +26,7 @@ Detailed instructions are [here](https://qiita.com/Surumerf/items/43674732653714
 Run with the following command:
 
 ```batch
-python stockprice-cli-v1.6.py
+python stockprice-cli-v1.7.py
 ```
 
 Then enter commands as per instructions.
